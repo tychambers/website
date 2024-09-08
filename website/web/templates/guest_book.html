@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="class1">Sign Guest Book 
+    <a href="{% url 'post_new' %}">{% include './icons/pencil-fill.svg' %}</a>
+    </h1>
+
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+            </time>
+            <h2 class="class1">{{ post.title }}</h2>
+            <p class="class1">
+                Written By: {{ post.author }}
+                <br>
+                Date Posted: {{ post.published_date }}
+                <br>
+                Message: {{ post.text|linebreaksbr }}
+                <br>
+            </p>
+        </article>
+    {% endfor %}
+{% endblock %}
