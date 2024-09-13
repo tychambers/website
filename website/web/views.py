@@ -90,7 +90,7 @@ def movie_finder(request):
             movies = p.get_page(page)
 
         else:
-            data = {}
+            movie_list2 = {}
             movies = {}
 
     return render(request, 'movie_finder.html', {"data": movie_list2,
