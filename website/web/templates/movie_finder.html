@@ -8,14 +8,19 @@
     <label>Enter Movie</label>
     <input type="text" class="form-control" name="movie" placeholder="Choose Your Movie ...">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+  {% if movies %}
+  <button type="submit" name="submit" value="clear" class="btn btn-primary">Clear</button>
+  {% else %}
+  <button type="submit" name="submit" value="clear" class="btn btn-primary" disabled>Clear</button>
+  {% endif %}
 </form>
+
 <div class="container">
 	<div class="row">
 		<div class="col"></div>
 		<div class="col-6">
-			{% for r in data %}
-				{% if r.backdrop_path %}
+			{% for r in movies %}
 				<div class="text-center card box-shadow">
 					<img src="https://image.tmdb.org/t/p/w500{{r.backdrop_path}}" alt="{{r.title}}" class="rounded mx-auto d-block"><br>
 					{{ r.title }}<br>
@@ -23,12 +28,30 @@
 					Description: {{r.overview }} <br>
 				</div>
 				<br><br>
-				{% endif %}
 			{% endfor %}
 		</div>
 		<div class="col"></div>
 	</div>
 </div>
+<br><br>
+{% if movies.has_previous %}
+	<a href="?page=1">&laquo First</a>
+	<a href="?page={{ movies.previous_page_number }}">Previous</a>
 
+{% endif %}
+
+{% if movies %}
+<hr>
+Page {{ movies.number }} of {{ movies.paginator.num_pages }}
+
+{% endif %}
+
+
+{% if movies.has_next %}
+	<a href="?page={{ movies.next_page_number }}">next</a>
+
+	<a href="?page={{ movies.paginator.num_pages }}">Last &raquo </a>
+
+{% endif %}
 
 {% endblock %}
