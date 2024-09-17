@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+Question {{ question_count}}/20: 
+{{ question }}
+
+<form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<div class="bd-example m-0 border-0">
+    
+	<select class="form-select" multiple="" aria-label="Multiple select example" name="selection">
+	  <option selected="">{{ answer_list.0 }}</option>
+	  <option value="{{ answer_list.1 }}">{{ answer_list.1 }}</option>
+	  <option value="{{ answer_list.2 }}">{{ answer_list.2 }}</option>
+	  <option value="{{ answer_list.3 }}">{{ answer_list.3 }}</option>
+	</select>
+	<button type="Submit" class="btn btn-primary">Submit</button>
+
+	</div>
+</form>
+
+{% if counter %}
+
+Number Correct: {{ counter }}
+{% endif %}
+
+{% endblock %}

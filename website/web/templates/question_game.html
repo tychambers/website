@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+<h3>20 Questions!</h3>
+<p>Select Category and Difficulty Level</p>
+<form method="post">
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Category</label>
+			<select class="form-control" name="category" id="exampleFormControlSelect1">
+			<option>General</option>
+			<option>Entertainment: Books</option>
+			<option>Entertainment: Film</option>
+			<option>Entertainment: Music</option>
+			<option>Entertainment: Television</option>
+			<option>Entertainment: Video Games</option>
+			<option>Entertainment: Board Games</option>
+			<option>Science and Nature</option>
+			<option>Science: Computers</option>
+			<option>Science: Mathematics</option>
+			<option>Mythology</option>
+			<option>Sports</option>
+			<option>Geography</option>
+			<option>History</option>
+			<option>Politics</option>
+			<option>Art</option>
+			<option>Celebrities</option>
+			<option>Animals</option>
+			<option>Vehicles</option>
+			<option>Comics</option>
+			<option>Gadgets</option>
+			<option>Anime</option>
+			<option>Cartoons</option>
+			</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Difficulty</label>
+			<select class="form-control" name="difficulty" id="exampleFormControlSelect1">
+			<option>Easy</option>
+			<option>Medium</option>
+			<option>Hard</option>
+			</select>
+	</div><br>
+<button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+{% endblock %}

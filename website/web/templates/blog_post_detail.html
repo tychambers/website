@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Blog Post: </h2>
+<br>
+<article class="post">
+        <aside class="actions">
+        </aside>
+        <h2>{{ blog_post.title }}</h2>
+        <br>
+        <p>Created: {{ blog_post.created_date }}</p>
+        <p>{{ blog_post.text|linebreaksbr }}</p>
+    </article>
+
+
+{% endblock %}
